@@ -140,7 +140,7 @@ const faqs = [
   },
 ]
 
-export default function HomePage() {
+export default function SemillaIniciaPage() {
   return (
     <div className="flex min-h-screen flex-col">
       {/* Header */}
@@ -433,28 +433,26 @@ export default function HomePage() {
                 {clusters.map((cluster, index) => {
                   const Icon = cluster.icon
                   return (
-                    <AccordionItem key={index} value={`cluster-${index}`} className="border rounded-lg px-6 bg-card">
+                    <AccordionItem key={index} value={`item-${index}`} className="border rounded-lg px-6 bg-card">
                       <AccordionTrigger className="hover:no-underline py-6">
                         <div className="flex items-center gap-4 text-left">
                           <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                             <Icon className="h-6 w-6 text-primary" />
                           </div>
                           <div>
-                            <div className="font-bold text-lg">{cluster.title}</div>
-                            <div className="text-sm text-muted-foreground font-normal">{cluster.description}</div>
+                            <h3 className="font-bold text-lg">{cluster.title}</h3>
+                            <p className="text-sm text-muted-foreground">{cluster.description}</p>
                           </div>
                         </div>
                       </AccordionTrigger>
                       <AccordionContent className="pb-6 pt-2">
-                        <div className="space-y-4 ml-16">
+                        <div className="space-y-3 pl-16">
                           <div>
-                            <span className="font-semibold text-foreground">Ejemplos: </span>
-                            <span className="text-muted-foreground">{cluster.examples}</span>
+                            <p className="text-sm font-semibold mb-1">Ejemplos de proyectos:</p>
+                            <p className="text-sm text-muted-foreground leading-relaxed">{cluster.examples}</p>
                           </div>
                           {cluster.highlighted && (
-                            <Badge variant="secondary" className="bg-primary/10 text-primary">
-                              {cluster.highlighted}
-                            </Badge>
+                            <Badge className="bg-accent text-accent-foreground">{cluster.highlighted}</Badge>
                           )}
                         </div>
                       </AccordionContent>
@@ -470,18 +468,19 @@ export default function HomePage() {
         <section className="py-20">
           <div className="container">
             <div className="mx-auto max-w-3xl text-center space-y-4 mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">¿Qué Financia el Fondo?</h2>
-              <p className="text-lg text-muted-foreground">Actividades y gastos financiables con Semilla Inicia</p>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+                Actividades y Gastos Financiables con Semilla Inicia
+              </h2>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
               {/* Actividades Obligatorias */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-xl">Actividades Obligatorias</CardTitle>
+                  <CardTitle className="text-xl text-primary">Actividades Obligatorias</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-2">
+                  <ul className="space-y-3">
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                       <span className="text-sm leading-relaxed">Servicios de mentoría profesional</span>
@@ -921,82 +920,90 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+      </main>
 
-        {/* Footer */}
-        <footer className="border-t bg-muted/30 py-12">
-          <div className="container">
-            <div className="grid md:grid-cols-3 gap-8 mb-8">
-              {/* Columna 1: WiTI */}
-              <div className="space-y-4">
-                <Image src="/witi-logo.svg" alt="WiTI Logo" width={130} height={40} className="h-10 w-auto" />
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Consultora especializada en fondos CORFO con +5 años de experiencia ayudando a emprendedores a
-                  conseguir financiamiento
-                </p>
-              </div>
-
-              {/* Columna 2: Enlaces Útiles */}
-              <div className="space-y-4">
-                <h4 className="font-semibold">Enlaces Útiles</h4>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>
-                    <Link href="#programa" className="hover:text-primary transition-colors">
-                      Sobre el Programa
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#requisitos" className="hover:text-primary transition-colors">
-                      Requisitos
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#witi" className="hover:text-primary transition-colors">
-                      Por Qué WiTI
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#contacto" className="hover:text-primary transition-colors">
-                      Contacto
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Columna 3: Recursos */}
-              <div className="space-y-4">
-                <h4 className="font-semibold">Recursos</h4>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>
-                    <a href="#" className="hover:text-primary transition-colors flex items-center gap-2">
-                      <Download className="h-4 w-4" />
-                      Bases Semilla Inicia 2025
-                    </a>
-                  </li>
-                  <li>
-                    <Link href="#faq" className="hover:text-primary transition-colors">
-                      Preguntas Frecuentes
-                    </Link>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:text-primary transition-colors">
-                      Términos y Condiciones
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:text-primary transition-colors">
-                      Política de Privacidad
-                    </a>
-                  </li>
-                </ul>
-              </div>
+      {/* Footer */}
+      <footer className="border-t py-12 bg-muted/50">
+        <div className="container">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Columna 1 */}
+            <div className="space-y-4">
+              <Image src="/witi-logo.svg" alt="WiTI Logo" width={130} height={40} className="h-10 w-auto" />
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Consultora especializada en fondos CORFO con +5 años de experiencia
+              </p>
             </div>
 
-            <div className="border-t pt-8 text-center text-sm text-muted-foreground">
-              <p>&copy; 2025 WiTI - Todos los derechos reservados</p>
+            {/* Columna 2 */}
+            <div>
+              <h3 className="font-semibold mb-4">Enlaces Útiles</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>
+                  <Link href="/" className="hover:text-primary transition-colors">
+                    Sobre WiTI
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/#servicios" className="hover:text-primary transition-colors">
+                    Servicios
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/#metodologia" className="hover:text-primary transition-colors">
+                    Nuestra Metodología
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#contacto" className="hover:text-primary transition-colors">
+                    Contáctanos
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Columna 3 */}
+            <div>
+              <h3 className="font-semibold mb-4">Recursos</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>
+                  <a href="#" className="hover:text-primary transition-colors">
+                    Descargar Bases Semilla Inicia 2025 (PDF)
+                  </a>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-primary transition-colors">
+                    Preguntas Frecuentes
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-primary transition-colors">
+                    Términos y Condiciones
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-primary transition-colors">
+                    Política de Privacidad
+                  </Link>
+                </li>
+              </ul>
             </div>
           </div>
-        </footer>
-      </main>
+
+          <div className="mt-12 pt-8 border-t text-center text-sm text-muted-foreground">
+            <p>© 2025 WiTI - Todos los derechos reservados</p>
+          </div>
+        </div>
+      </footer>
+
+      {/* WhatsApp Float Button */}
+      <a
+        href="https://wa.me/56975379882?text=Hola,%20me%20gustaría%20obtener%20más%20información%20sobre%20Semilla%20Inicia%202025"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 h-14 w-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50"
+      >
+        <Phone className="h-6 w-6" />
+      </a>
     </div>
   )
 }
