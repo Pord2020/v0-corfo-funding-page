@@ -6,7 +6,8 @@ import "@typeform/embed/build/css/popup.css"
 import type { ComponentProps } from "react"
 import { Button } from "@/components/ui/button"
 
-const DEFAULT_FORM_ID = "01KB0RGZW8NJ9219RW955ABYV4"
+// Default embed for https://m20y7fw1hlw.typeform.com/to/k8nsgPrj
+const DEFAULT_FORM_ID = "k8nsgPrj"
 
 export type TypeformButtonProps = ComponentProps<typeof Button> & {
   formId?: string

@@ -36,7 +36,7 @@ export const metadata = {
 }
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://witi.cl"
-const TYPEFORM_URL = "https://m20y7fw1hlw.typeform.com/to/r1rGutdL"
+const TYPEFORM_URL = "https://m20y7fw1hlw.typeform.com/to/k8nsgPrj"
 
 const clusters = [
   {
