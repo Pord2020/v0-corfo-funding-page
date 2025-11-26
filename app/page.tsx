@@ -24,15 +24,18 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import Script from "next/script"
+import { TypeformButton } from "@/components/typeform-button"
 
 export const metadata = {
-  title: "Semilla Inicia 2025: Hasta $17M para tu Startup | WiTI - Consultora CORFO",
+  title: "Fondo Inicia 2025: Hasta $17M para tu Startup | WiTI - Consultora CORFO",
   description:
-    "Postula a Semilla Inicia 2025 con WiTI y obtén hasta $17 millones para tu emprendimiento. 75% de tasa de éxito y acompañamiento experto CORFO.",
+    "Postula al Fondo Inicia 2025 con WiTI y obtén hasta $17 millones para tu emprendimiento. 75% de tasa de éxito y acompañamiento experto CORFO.",
   keywords:
-    "semilla inicia 2025, fondo corfo, subsidio emprendimiento chile, financiamiento startup, postular corfo, witi consultora",
+    "fondo inicia 2025, fondo corfo, subsidio emprendimiento chile, financiamiento startup, postular corfo, witi consultora",
 }
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://witi.cl"
 const TYPEFORM_URL = "https://m20y7fw1hlw.typeform.com/to/r1rGutdL"
 
 const clusters = [
@@ -133,9 +136,81 @@ const faqs = [
   },
 ]
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "WiTI",
+  url: siteUrl,
+  logo: `${siteUrl}/witi-logo.svg`,
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: "+56 9 7537 9882",
+      contactType: "sales",
+      areaServed: "CL",
+      availableLanguage: ["Spanish"],
+    },
+  ],
+  sameAs: ["https://www.linkedin.com/company/witi"],
+  address: [
+    {
+      "@type": "PostalAddress",
+      streetAddress: "Huérfanos 1160, Of. 1101",
+      addressLocality: "Santiago",
+      addressCountry: "CL",
+    },
+    {
+      "@type": "PostalAddress",
+      streetAddress: "Paraguay 2141, Of. 405",
+      addressLocality: "Montevideo",
+      addressCountry: "UY",
+    },
+    {
+      "@type": "PostalAddress",
+      streetAddress: "Carrera 16 93 A 16 Of. 203 204",
+      addressLocality: "Bogotá",
+      addressCountry: "CO",
+    },
+  ],
+}
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "WiTI",
+  url: siteUrl,
+  potentialAction: {
+    "@type": "SearchAction",
+    target: `${siteUrl}/?q={search_term_string}`,
+    "query-input": "required name=search_term_string",
+  },
+}
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+}
+
 export default function HomePage() {
   return (
     <div className="flex min-h-screen flex-col">
+      <Script id="ld-org" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(organizationSchema)}
+      </Script>
+      <Script id="ld-website" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(websiteSchema)}
+      </Script>
+      <Script id="ld-faq" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(faqSchema)}
+      </Script>
       {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
@@ -155,11 +230,7 @@ export default function HomePage() {
             <Link href="#witi" className="text-sm font-medium hover:text-primary transition-colors">
               Por Qué WiTI
             </Link>
-            <Button className="bg-accent text-accent-foreground hover:bg-accent/90" asChild>
-              <a href={TYPEFORM_URL} target="_blank" rel="noreferrer">
-                Agenda tu Asesoría
-              </a>
-            </Button>
+            <TypeformButton className="bg-accent text-accent-foreground hover:bg-accent/90">Agenda tu Asesoría</TypeformButton>
           </nav>
         </div>
       </header>
@@ -186,11 +257,9 @@ export default function HomePage() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90" asChild>
-                  <a href={TYPEFORM_URL} target="_blank" rel="noreferrer">
-                    Agenda tu Asesoría Gratuita
-                  </a>
-                </Button>
+                <TypeformButton size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+                  Agenda tu Asesoría Gratuita
+                </TypeformButton>
               </div>
 
               {/* Trust Badges */}
@@ -397,7 +466,11 @@ export default function HomePage() {
             </div>
 
             <div className="text-center mt-8">
-              <Button variant="outline" size="lg" asChild>
+              <Button
+                variant="outline"
+                size="lg"
+                asChild
+              >
                 <a
                   href="https://wa.me/56975379882"
                   target="_blank"
@@ -766,11 +839,9 @@ export default function HomePage() {
                     </p>
                   </div>
                   <div className="flex justify-center">
-                    <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90" asChild>
-                      <a href={TYPEFORM_URL} target="_blank" rel="noreferrer">
-                        Agenda tu asesoría ahora
-                      </a>
-                    </Button>
+                    <TypeformButton size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+                      Agenda tu asesoría ahora
+                    </TypeformButton>
                   </div>
                 </CardContent>
               </Card>
@@ -792,11 +863,9 @@ export default function HomePage() {
             </div>
 
             <div className="max-w-2xl mx-auto text-center">
-              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90" asChild>
-                <a href={TYPEFORM_URL} target="_blank" rel="noreferrer">
-                  Agenda tu asesoría en Typeform
-                </a>
-              </Button>
+              <TypeformButton size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+                Agenda tu asesoría en Typeform
+              </TypeformButton>
             </div>
           </div>
         </section>
@@ -829,11 +898,9 @@ export default function HomePage() {
                 </div>
                 <div className="space-y-2">
                   <p className="font-semibold">Acción</p>
-                  <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90" asChild>
-                    <a href={TYPEFORM_URL} target="_blank" rel="noreferrer">
-                      Agenda tu asesoría
-                    </a>
-                  </Button>
+                  <TypeformButton className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
+                    Agenda tu asesoría
+                  </TypeformButton>
                 </div>
               </div>
             </div>
