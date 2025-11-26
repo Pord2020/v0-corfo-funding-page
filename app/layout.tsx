@@ -10,6 +10,7 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://witi.cl"
 const gtmId = process.env.NEXT_PUBLIC_GTM_ID
+const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 
 export const metadata: Metadata = {
   title: "Fondo Inicia 2025 | Hasta $17M con WiTI | Consultoría CORFO",
@@ -81,6 +82,23 @@ export default function RootLayout({
                 style={{ display: "none", visibility: "hidden" }}
               />
             </noscript>
+          </>
+        )}
+        {gaMeasurementId && (
+          <>
+            <Script
+              id="ga4-src"
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaMeasurementId}');
+              `}
+            </Script>
           </>
         )}
         {children}
