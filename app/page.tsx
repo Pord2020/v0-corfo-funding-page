@@ -2,11 +2,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Checkbox } from "@/components/ui/checkbox"
 import {
   CheckCircle2,
   DollarSign,
@@ -25,11 +20,7 @@ import {
   Bot,
   Waves,
   HeartPulse,
-  Phone,
-  Mail,
-  MapPin,
   ChevronRight,
-  Download,
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -37,10 +28,12 @@ import Image from "next/image"
 export const metadata = {
   title: "Semilla Inicia 2025: Hasta $17M para tu Startup | WiTI - Consultora CORFO",
   description:
-    "Postula a Semilla Inicia 2025 con WiTI y obtén hasta $17 millones para tu emprendimiento. 90% de tasa de éxito. Asesoría gratuita. Entidad Patrocinadora CORFO.",
+    "Postula a Semilla Inicia 2025 con WiTI y obtén hasta $17 millones para tu emprendimiento. 75% de tasa de éxito y acompañamiento experto CORFO.",
   keywords:
     "semilla inicia 2025, fondo corfo, subsidio emprendimiento chile, financiamiento startup, postular corfo, witi consultora",
 }
+
+const TYPEFORM_URL = "https://m20y7fw1hlw.typeform.com/to/r1rGutdL"
 
 const clusters = [
   {
@@ -157,13 +150,15 @@ export default function HomePage() {
               Requisitos
             </Link>
             <Link href="#focalizacion" className="text-sm font-medium hover:text-primary transition-colors">
-              Áreas Prioritarias
+              Focalización
             </Link>
             <Link href="#witi" className="text-sm font-medium hover:text-primary transition-colors">
               Por Qué WiTI
             </Link>
             <Button className="bg-accent text-accent-foreground hover:bg-accent/90" asChild>
-              <a href="#contacto">Agenda tu Asesoría</a>
+              <a href={TYPEFORM_URL} target="_blank" rel="noreferrer">
+                Agenda tu Asesoría
+              </a>
             </Button>
           </nav>
         </div>
@@ -187,17 +182,13 @@ export default function HomePage() {
                 (75% base + 10% extra para empresas lideradas por mujeres).
                 <strong className="text-foreground"> 10 meses de ejecución</strong> para validar tu idea y lograr tus
                 primeras ventas. WiTI es tu aliado estratégico con{" "}
-                <strong className="text-foreground">+90% de tasa de éxito</strong> en postulaciones CORFO.
+                <strong className="text-foreground">75% de tasa de éxito</strong> en postulaciones CORFO.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                 <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90" asChild>
-                  <a href="#contacto">Agenda tu Asesoría Gratuita</a>
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <a href="#" className="flex items-center gap-2">
-                    <Download className="h-4 w-4" />
-                    Descarga las Bases Completas
+                  <a href={TYPEFORM_URL} target="_blank" rel="noreferrer">
+                    Agenda tu Asesoría Gratuita
                   </a>
                 </Button>
               </div>
@@ -206,15 +197,15 @@ export default function HomePage() {
               <div className="flex flex-col md:flex-row gap-4 justify-center items-center pt-8">
                 <Badge variant="secondary" className="px-4 py-2 text-sm">
                   <CheckCircle2 className="h-4 w-4 mr-2 text-primary" />
-                  Entidad Patrocinadora Oficial CORFO
+                  75% Tasa de Éxito con CORFO
                 </Badge>
                 <Badge variant="secondary" className="px-4 py-2 text-sm">
                   <CheckCircle2 className="h-4 w-4 mr-2 text-primary" />
-                  +150 Proyectos Aprobados
+                  Equipo senior en fondos CORFO
                 </Badge>
                 <Badge variant="secondary" className="px-4 py-2 text-sm">
                   <CheckCircle2 className="h-4 w-4 mr-2 text-primary" />
-                  90% Tasa de Éxito
+                  Acompañamiento integral
                 </Badge>
               </div>
             </div>
@@ -315,7 +306,7 @@ export default function HomePage() {
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                       <span className="text-sm leading-relaxed">
-                        Persona natural mayor de 18 años con residencia en Chile, O
+                        Persona natural mayor de 18 años con residencia en Chile
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
@@ -407,8 +398,13 @@ export default function HomePage() {
 
             <div className="text-center mt-8">
               <Button variant="outline" size="lg" asChild>
-                <a href="#contacto">
-                  ¿Tienes dudas si calificas? Consulta con nuestros expertos
+                <a
+                  href="https://wa.me/56975379882"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-center gap-2"
+                >
+                  ¿Tienes dudas si calificas? Escríbenos por WhatsApp
                   <ChevronRight className="h-4 w-4 ml-2" />
                 </a>
               </Button>
@@ -421,10 +417,10 @@ export default function HomePage() {
           <div className="container">
             <div className="mx-auto max-w-3xl text-center space-y-4 mb-8">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-                8 Áreas Estratégicas con Prioridad de Financiamiento
+                Focalización: Fondo Inicia 2025 solo financiará proyectos en estos focos
               </h2>
               <p className="text-lg text-muted-foreground">
-                Semilla Inicia 2025 prioriza proyectos en estos sectores de alto impacto para Chile
+                Conoce las áreas estratégicas donde el Fondo Inicia 2025 concentrará su financiamiento.
               </p>
             </div>
 
@@ -548,107 +544,99 @@ export default function HomePage() {
         <section className="py-20 bg-muted/50">
           <div className="container">
             <div className="mx-auto max-w-3xl text-center space-y-4 mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Tu Camino al Financiamiento en 5 Pasos</h2>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Tu Camino al Financiamiento</h2>
+              <p className="text-lg text-muted-foreground">Acompañamiento experto en 3 fases clave</p>
             </div>
 
-            <div className="max-w-5xl mx-auto">
-              <div className="grid md:grid-cols-5 gap-4">
-                {/* Paso 1 */}
-                <Card className="text-center relative">
-                  <CardHeader>
-                    <div className="mx-auto h-12 w-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xl mb-4">
-                      1
-                    </div>
-                    <CardTitle className="text-base">Evaluación Inicial con WiTI</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-2">
-                      Revisamos tu idea y confirmamos elegibilidad
-                    </p>
-                    <Badge variant="outline" className="text-xs">
-                      1-2 días
-                    </Badge>
-                  </CardContent>
-                </Card>
+            <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
+              <Card className="h-full">
+                <CardHeader>
+                  <Badge className="w-fit">Fase 1</Badge>
+                  <CardTitle>Diagnóstico & Admisibilidad</CardTitle>
+                  <CardDescription>
+                    Identificamos el fondo CORFO más adecuado según tus objetivos y capacidades.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div>
+                    <p className="font-semibold mb-2">Qué hacemos</p>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      <li>- Evaluación de admisibilidad técnica y financiera</li>
+                      <li>- Análisis de capacidad de contrapartida</li>
+                      <li>- Identificación de brechas y fortalezas del proyecto</li>
+                      <li>- Recomendación de línea CORFO óptima</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="font-semibold mb-2">Entregables</p>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      <li>- Informe de diagnóstico empresarial</li>
+                      <li>- Matriz de elegibilidad CORFO</li>
+                      <li>- Plan de acción preliminar</li>
+                    </ul>
+                  </div>
+                </CardContent>
+              </Card>
 
-                {/* Paso 2 */}
-                <Card className="text-center relative">
-                  <CardHeader>
-                    <div className="mx-auto h-12 w-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xl mb-4">
-                      2
-                    </div>
-                    <CardTitle className="text-base">Desarrollo del Proyecto</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-2">
-                      Co-creamos tu propuesta con máximas probabilidades de éxito
-                    </p>
-                    <Badge variant="outline" className="text-xs">
-                      1-2 semanas
-                    </Badge>
-                  </CardContent>
-                </Card>
+              <Card className="h-full">
+                <CardHeader>
+                  <Badge className="w-fit">Fase 2</Badge>
+                  <CardTitle>Formulación del Proyecto</CardTitle>
+                  <CardDescription>
+                    Construimos una propuesta competitiva alineada a los criterios de evaluación CORFO.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div>
+                    <p className="font-semibold mb-2">Qué hacemos</p>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      <li>- Diseño de la solución técnica del proyecto</li>
+                      <li>- Estructuración del modelo de negocio y financiero</li>
+                      <li>- Definición de indicadores y metas</li>
+                      <li>- Preparación de documentación de respaldo</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="font-semibold mb-2">Entregables</p>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      <li>- Propuesta técnica completa</li>
+                      <li>- Modelo financiero y presupuesto detallado</li>
+                      <li>- Carta Gantt del proyecto</li>
+                      <li>- Documentos de respaldo técnico</li>
+                    </ul>
+                  </div>
+                </CardContent>
+              </Card>
 
-                {/* Paso 3 */}
-                <Card className="text-center relative">
-                  <CardHeader>
-                    <div className="mx-auto h-12 w-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xl mb-4">
-                      3
-                    </div>
-                    <CardTitle className="text-base">Postulación a CORFO</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-2">
-                      Enviamos tu proyecto en los plazos oficiales
-                    </p>
-                    <Badge variant="outline" className="text-xs">
-                      Según convocatoria
-                    </Badge>
-                  </CardContent>
-                </Card>
-
-                {/* Paso 4 */}
-                <Card className="text-center relative">
-                  <CardHeader>
-                    <div className="mx-auto h-12 w-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xl mb-4">
-                      4
-                    </div>
-                    <CardTitle className="text-base">Evaluación CORFO</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-2">
-                      CORFO evalúa tu proyecto (admisibilidad + evaluación)
-                    </p>
-                    <Badge variant="outline" className="text-xs">
-                      25 días aprox.
-                    </Badge>
-                  </CardContent>
-                </Card>
-
-                {/* Paso 5 */}
-                <Card className="text-center relative">
-                  <CardHeader>
-                    <div className="mx-auto h-12 w-12 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-bold text-xl mb-4">
-                      5
-                    </div>
-                    <CardTitle className="text-base">Adjudicación y Ejecución</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-2">
-                      Formalización del convenio y entrega de recursos
-                    </p>
-                    <Badge variant="outline" className="text-xs">
-                      15 días
-                    </Badge>
-                  </CardContent>
-                </Card>
-              </div>
-
-              <div className="text-center mt-8">
-                <p className="text-muted-foreground">
-                  Con WiTI, te acompañamos en cada etapa - desde la idea hasta la entrega del subsidio
-                </p>
-              </div>
+              <Card className="h-full">
+                <CardHeader>
+                  <Badge className="w-fit">Fase 3</Badge>
+                  <CardTitle>Postulación</CardTitle>
+                  <CardDescription>
+                    Gestionamos el envío y seguimiento para que tu propuesta destaque.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div>
+                    <p className="font-semibold mb-2">Qué hacemos</p>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      <li>- Redacción y ajuste de formularios CORFO</li>
+                      <li>- Coordinación de documentación legal y financiera</li>
+                      <li>- Revisión de admisibilidad pre-envío</li>
+                      <li>- Gestión de envío y seguimiento</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="font-semibold mb-2">Entregables</p>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      <li>- Formulario CORFO completo</li>
+                      <li>- Set de documentos anexos</li>
+                      <li>- Checklist de requisitos cumplidos</li>
+                      <li>- Comprobante de postulación</li>
+                    </ul>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
@@ -666,66 +654,58 @@ export default function HomePage() {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-12">
-              {/* Experiencia */}
               <Card className="text-center">
                 <CardHeader>
                   <div className="mx-auto h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                     <Award className="h-8 w-8 text-primary" />
                   </div>
-                  <div className="text-3xl font-bold text-primary mb-2">+150</div>
-                  <CardTitle className="text-lg">Proyectos Aprobados</CardTitle>
+                  <CardTitle className="text-lg">Experiencia CORFO</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Más de 5 años especializados en fondos CORFO. Conocemos al detalle cada instrumento
+                    Consultores senior con trayectoria en fondos CORFO y conocimiento profundo de los instrumentos.
                   </p>
                 </CardContent>
               </Card>
 
-              {/* Tasa de Éxito */}
               <Card className="text-center border-2 border-primary">
                 <CardHeader>
                   <div className="mx-auto h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                     <TrendingUp className="h-8 w-8 text-primary" />
                   </div>
-                  <div className="text-3xl font-bold text-primary mb-2">90%</div>
-                  <CardTitle className="text-lg">de Aprobación</CardTitle>
+                  <CardTitle className="text-lg">75% de Aprobación</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    9 de cada 10 proyectos que postulamos son financiados. Muy por sobre la media del mercado
+                    Metodología probada que maximiza la elegibilidad y la evaluación técnica de tu proyecto.
                   </p>
                 </CardContent>
               </Card>
 
-              {/* Acompañamiento */}
               <Card className="text-center">
                 <CardHeader>
                   <div className="mx-auto h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                     <Handshake className="h-8 w-8 text-primary" />
                   </div>
-                  <div className="text-xl font-bold text-primary mb-2">De Principio a Fin</div>
                   <CardTitle className="text-lg">Acompañamiento Integral</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Desde la elegibilidad hasta la entrega de recursos. Seguimiento post-adjudicación incluido
+                    Desde el diagnóstico hasta la postulación, con seguimiento cercano y entregables claros.
                   </p>
                 </CardContent>
               </Card>
 
-              {/* Equipo */}
               <Card className="text-center">
                 <CardHeader>
                   <div className="mx-auto h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                     <Users className="h-8 w-8 text-primary" />
                   </div>
-                  <div className="text-xl font-bold text-primary mb-2">Especialistas</div>
-                  <CardTitle className="text-lg">Equipo Experto</CardTitle>
+                  <CardTitle className="text-lg">Equipo Multidisciplinario</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Ingenieros, consultores y ex-evaluadores CORFO. Entidad Patrocinadora oficial
+                    Ingenieros, consultores y ex-evaluadores trabajando en conjunto para fortalecer tu propuesta.
                   </p>
                 </CardContent>
               </Card>
@@ -764,41 +744,36 @@ export default function HomePage() {
           <div className="container">
             <div className="mx-auto max-w-3xl text-center space-y-4 mb-16">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-                Plazos Clave - No Te Pierdas la Convocatoria 2025
+                Plazo Máximo de Postulación
               </h2>
+              <p className="text-lg text-muted-foreground">
+                Prepárate con tiempo para llegar a la convocatoria Semilla Inicia 2025.
+              </p>
             </div>
 
-            <div className="max-w-4xl mx-auto">
-              <div className="space-y-4">
-                {[
-                  { date: "Diciembre 2024", event: "Apertura de postulaciones (fecha estimada)" },
-                  { date: "Enero 2025", event: "Cierre de postulaciones" },
-                  { date: "Febrero 2025", event: "Evaluación de proyectos" },
-                  { date: "Marzo 2025", event: "Publicación de resultados" },
-                  { date: "Abril 2025", event: "Formalización y entrega de recursos" },
-                ].map((item, index) => (
-                  <Card key={index}>
-                    <CardContent className="flex items-center gap-4 p-6">
-                      <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                        <Clock className="h-6 w-6 text-primary" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="font-bold text-primary">{item.date}</div>
-                        <div className="text-muted-foreground">{item.event}</div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-
-              <div className="text-center mt-8">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90" asChild>
-                  <a href="#contacto">
-                    <Clock className="h-4 w-4 mr-2" />
-                    ¡El tiempo corre! Agenda tu asesoría hoy para llegar a tiempo
-                  </a>
-                </Button>
-              </div>
+            <div className="max-w-3xl mx-auto text-center">
+              <Card className="border-primary/40 bg-primary/5">
+                <CardContent className="p-8 space-y-4">
+                  <div className="flex flex-col items-center gap-2">
+                    <div className="h-14 w-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center">
+                      <Clock className="h-7 w-7" />
+                    </div>
+                    <p className="text-sm font-semibold text-primary uppercase tracking-wide">Fecha límite</p>
+                    <h3 className="text-2xl font-bold">18 de diciembre</h3>
+                    <p className="text-muted-foreground max-w-xl">
+                      Agenda tu asesoría para asegurar un envío sólido antes del cierre. Nos encargamos de los
+                      entregables y del seguimiento de tu postulación.
+                    </p>
+                  </div>
+                  <div className="flex justify-center">
+                    <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90" asChild>
+                      <a href={TYPEFORM_URL} target="_blank" rel="noreferrer">
+                        Agenda tu asesoría ahora
+                      </a>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
@@ -808,7 +783,7 @@ export default function HomePage() {
           <div className="container">
             <div className="mx-auto max-w-3xl text-center space-y-4 mb-12">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-                Convierte tu Idea en Realidad con $17 Millones
+                Convierte tu Idea en Realidad con hasta $17 Millones
               </h2>
               <p className="text-lg text-muted-foreground">
                 No dejes pasar esta oportunidad única de financiamiento. Con WiTI, tu postulación está en las mejores
@@ -816,108 +791,12 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="max-w-2xl mx-auto">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Solicita tu Asesoría Gratuita</CardTitle>
-                  <CardDescription>Completa el formulario y te contactaremos en menos de 24 horas</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <form className="space-y-4">
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="nombre">Nombre completo *</Label>
-                        <Input id="nombre" placeholder="Juan Pérez" required />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="email">Email *</Label>
-                        <Input id="email" type="email" placeholder="juan@ejemplo.cl" required />
-                      </div>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="telefono">Teléfono *</Label>
-                        <Input id="telefono" type="tel" placeholder="+56 9 1234 5678" required />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="region">Región *</Label>
-                        <Select>
-                          <SelectTrigger id="region">
-                            <SelectValue placeholder="Selecciona tu región" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="rm">Región Metropolitana</SelectItem>
-                            <SelectItem value="valparaiso">Valparaíso</SelectItem>
-                            <SelectItem value="biobio">Biobío</SelectItem>
-                            <SelectItem value="otra">Otra región</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="cluster">Clúster temático de tu proyecto *</Label>
-                      <Select>
-                        <SelectTrigger id="cluster">
-                          <SelectValue placeholder="Selecciona el área de tu proyecto" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {clusters.map((cluster, index) => (
-                            <SelectItem key={index} value={cluster.title}>
-                              {cluster.title}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="proyecto">Breve descripción de tu proyecto *</Label>
-                      <Textarea
-                        id="proyecto"
-                        placeholder="Describe en pocas palabras tu idea de negocio, problema que resuelve y mercado objetivo..."
-                        rows={4}
-                        required
-                      />
-                    </div>
-
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="terms" required />
-                      <label
-                        htmlFor="terms"
-                        className="text-sm text-muted-foreground leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        Acepto los términos y condiciones y la política de privacidad
-                      </label>
-                    </div>
-
-                    <Button
-                      type="submit"
-                      className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
-                      size="lg"
-                    >
-                      Solicitar Asesoría Gratuita
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-
-              {/* Información de Contacto */}
-              <div className="mt-8 grid md:grid-cols-3 gap-4 text-center">
-                <div className="flex flex-col items-center gap-2">
-                  <Mail className="h-5 w-5 text-primary" />
-                  <span className="text-sm text-muted-foreground">contacto@witi.cl</span>
-                </div>
-                <div className="flex flex-col items-center gap-2">
-                  <Phone className="h-5 w-5 text-primary" />
-                  <span className="text-sm text-muted-foreground">+56 9 7537 9882</span>
-                </div>
-                <div className="flex flex-col items-center gap-2">
-                  <MapPin className="h-5 w-5 text-primary" />
-                  <span className="text-sm text-muted-foreground">Chile</span>
-                </div>
-              </div>
+            <div className="max-w-2xl mx-auto text-center">
+              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90" asChild>
+                <a href={TYPEFORM_URL} target="_blank" rel="noreferrer">
+                  Agenda tu asesoría en Typeform
+                </a>
+              </Button>
             </div>
           </div>
         </section>
@@ -925,74 +804,41 @@ export default function HomePage() {
         {/* Footer */}
         <footer className="border-t bg-muted/30 py-12">
           <div className="container">
-            <div className="grid md:grid-cols-3 gap-8 mb-8">
-              {/* Columna 1: WiTI */}
-              <div className="space-y-4">
-                <Image src="/witi-logo.svg" alt="WiTI Logo" width={130} height={40} className="h-10 w-auto" />
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Consultora especializada en fondos CORFO con +5 años de experiencia ayudando a emprendedores a
-                  conseguir financiamiento
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
+              <div className="space-y-3">
+                <p className="text-xs uppercase font-semibold tracking-[0.2em] text-primary">
+                  Tecnología pensada para innovar
                 </p>
+                <Image src="/witi-logo.svg" alt="WiTI Logo" width={130} height={40} className="h-10 w-auto" />
               </div>
-
-              {/* Columna 2: Enlaces Útiles */}
-              <div className="space-y-4">
-                <h4 className="font-semibold">Enlaces Útiles</h4>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>
-                    <Link href="#programa" className="hover:text-primary transition-colors">
-                      Sobre el Programa
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#requisitos" className="hover:text-primary transition-colors">
-                      Requisitos
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#witi" className="hover:text-primary transition-colors">
-                      Por Qué WiTI
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#contacto" className="hover:text-primary transition-colors">
-                      Contacto
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Columna 3: Recursos */}
-              <div className="space-y-4">
-                <h4 className="font-semibold">Recursos</h4>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>
-                    <a href="#" className="hover:text-primary transition-colors flex items-center gap-2">
-                      <Download className="h-4 w-4" />
-                      Bases Semilla Inicia 2025
+              <div className="grid md:grid-cols-3 gap-6 text-sm">
+                <div className="space-y-2">
+                  <p className="font-semibold">Oficinas</p>
+                  <div className="text-muted-foreground space-y-1">
+                    <p>🇨🇱 Huérfanos 1160, Of. 1101, Santiago, Chile</p>
+                    <p>🇺🇾 Paraguay 2141, Of. 405, Montevideo, Uruguay</p>
+                    <p>🇨🇴 Carrera 16 93 A 16 Of. 203 204 Bogotá, Colombia</p>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <p className="font-semibold">Contacto</p>
+                  <div className="text-muted-foreground space-y-1">
+                    <p>+56 9 7537 9882</p>
+                    <p>startups@witi.cl</p>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <p className="font-semibold">Acción</p>
+                  <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90" asChild>
+                    <a href={TYPEFORM_URL} target="_blank" rel="noreferrer">
+                      Agenda tu asesoría
                     </a>
-                  </li>
-                  <li>
-                    <Link href="#faq" className="hover:text-primary transition-colors">
-                      Preguntas Frecuentes
-                    </Link>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:text-primary transition-colors">
-                      Términos y Condiciones
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:text-primary transition-colors">
-                      Política de Privacidad
-                    </a>
-                  </li>
-                </ul>
+                  </Button>
+                </div>
               </div>
             </div>
-
             <div className="border-t pt-8 text-center text-sm text-muted-foreground">
-              <p>&copy; 2025 WiTI - Todos los derechos reservados</p>
+              <p>&copy; 2025 WiTI. Todos los derechos reservados.</p>
             </div>
           </div>
         </footer>
