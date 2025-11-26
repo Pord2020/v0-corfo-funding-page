@@ -536,77 +536,94 @@ export default function HomePage() {
         </section>
 
         {/* Qué Financia */}
-        <section className="py-20">
-          <div className="container">
-            <div className="mx-auto max-w-3xl text-center space-y-4 mb-16">
+        <section className="py-20 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-accent/10 pointer-events-none" />
+          <div className="container relative">
+            <div className="mx-auto max-w-3xl text-center space-y-4 mb-12">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight">¿Qué Financia el Fondo?</h2>
-              <p className="text-lg text-muted-foreground">Actividades y gastos financiables con Semilla Inicia</p>
+              <p className="text-lg text-muted-foreground">
+                Actividades y gastos financiables del Fondo Inicia 2025
+              </p>
+              <div className="flex justify-center gap-3 flex-wrap">
+                <Badge variant="secondary" className="bg-primary/10 text-primary">
+                  Cobertura hasta 85% (con bono mujer)
+                </Badge>
+                <Badge variant="secondary" className="bg-accent/10 text-accent-foreground">
+                  Aporte mínimo 15% - 25%
+                </Badge>
+              </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
               {/* Actividades Obligatorias */}
-              <Card>
-                <CardHeader>
+              <Card className="border-primary/20 bg-primary/5">
+                <CardHeader className="space-y-2">
+                  <Badge className="w-fit">Incluidas siempre</Badge>
                   <CardTitle className="text-xl">Actividades Obligatorias</CardTitle>
+                  <CardDescription>
+                    Línea base requerida por CORFO para validar tu solución y modelo de negocio.
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-2">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                      <span className="text-sm leading-relaxed">Servicios de mentoría profesional</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                      <span className="text-sm leading-relaxed">Constitución de empresa e inicio de actividades</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                      <span className="text-sm leading-relaxed">Definición de modelo de negocios</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                      <span className="text-sm leading-relaxed">
-                        Desarrollo y validación técnica del producto/servicio
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                      <span className="text-sm leading-relaxed">
-                        Prospección y validación comercial (ferias, rondas de negocios)
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                      <span className="text-sm leading-relaxed">Estrategia de sostenibilidad (social y ambiental)</span>
-                    </li>
+                  <ul className="space-y-3">
+                    {[
+                      "Servicios de mentoría profesional",
+                      "Constitución de empresa e inicio de actividades",
+                      "Definición de modelo de negocios",
+                      "Desarrollo y validación técnica del producto/servicio",
+                      "Prospección y validación comercial (ferias, rondas de negocios)",
+                      "Estrategia de sostenibilidad (social y ambiental)",
+                    ].map((item, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <div className="h-6 w-6 rounded-full bg-primary/15 flex items-center justify-center mt-0.5">
+                          <CheckCircle2 className="h-4 w-4 text-primary" />
+                        </div>
+                        <span className="text-sm leading-relaxed">{item}</span>
+                      </li>
+                    ))}
                   </ul>
                 </CardContent>
               </Card>
 
               {/* Actividades Opcionales */}
-              <Card>
-                <CardHeader>
+              <Card className="border-border/50">
+                <CardHeader className="space-y-2">
+                  <Badge variant="outline" className="w-fit">
+                    Armar presupuesto
+                  </Badge>
                   <CardTitle className="text-xl">Actividades Opcionales</CardTitle>
+                  <CardDescription>
+                    Elige según la estrategia de ejecución y los hitos que necesitas financiar.
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li>• Equipo de trabajo (remuneraciones y honorarios)</li>
-                    <li>• Adquisición de conocimientos certificables</li>
-                    <li>• Desarrollo de pilotos (Producto Mínimo Viable)</li>
-                    <li>• Empaquetamiento comercial (diseño, muestras)</li>
-                    <li>• Marketing y difusión</li>
-                    <li>• Certificaciones de producto</li>
-                    <li>• Protección de propiedad intelectual</li>
-                    <li>• Arriendo de espacios (coworks)</li>
-                    <li>• Adquisición de activos críticos</li>
-                    <li>• Materiales e insumos</li>
+                  <ul className="space-y-3">
+                    {[
+                      "Equipo de trabajo (remuneraciones y honorarios)",
+                      "Adquisición de conocimientos certificables",
+                      "Desarrollo de pilotos (Producto Mínimo Viable)",
+                      "Empaquetamiento comercial (diseño, muestras)",
+                      "Marketing y difusión",
+                      "Certificaciones de producto",
+                      "Protección de propiedad intelectual",
+                      "Arriendo de espacios (coworks)",
+                      "Adquisición de activos críticos",
+                      "Materiales e insumos",
+                    ].map((item, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <div className="h-6 w-6 rounded-full bg-muted flex items-center justify-center mt-0.5">
+                          <CheckCircle2 className="h-4 w-4 text-foreground" />
+                        </div>
+                        <span className="text-sm text-muted-foreground leading-relaxed">{item}</span>
+                      </li>
+                    ))}
                   </ul>
                 </CardContent>
               </Card>
             </div>
 
             <div className="text-center mt-8">
-              <Badge variant="secondary" className="px-4 py-2">
+              <Badge variant="secondary" className="px-4 py-2 bg-primary/10 text-primary border-primary/20">
                 Hasta un 3% del subsidio puede destinarse a garantías
               </Badge>
             </div>
@@ -727,61 +744,44 @@ export default function HomePage() {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-12">
-              <Card className="text-center">
-                <CardHeader>
-                  <div className="mx-auto h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                    <Award className="h-8 w-8 text-primary" />
-                  </div>
-                  <CardTitle className="text-lg">Experiencia CORFO</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Consultores senior con trayectoria en fondos CORFO y conocimiento profundo de los instrumentos.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center border-2 border-primary">
-                <CardHeader>
-                  <div className="mx-auto h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                    <TrendingUp className="h-8 w-8 text-primary" />
-                  </div>
-                  <CardTitle className="text-lg">75% de Aprobación</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Metodología probada que maximiza la elegibilidad y la evaluación técnica de tu proyecto.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center">
-                <CardHeader>
-                  <div className="mx-auto h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                    <Handshake className="h-8 w-8 text-primary" />
-                  </div>
-                  <CardTitle className="text-lg">Acompañamiento Integral</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Desde el diagnóstico hasta la postulación, con seguimiento cercano y entregables claros.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="text-center">
-                <CardHeader>
-                  <div className="mx-auto h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                    <Users className="h-8 w-8 text-primary" />
-                  </div>
-                  <CardTitle className="text-lg">Equipo Multidisciplinario</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Ingenieros, consultores y ex-evaluadores trabajando en conjunto para fortalecer tu propuesta.
-                  </p>
-                </CardContent>
-              </Card>
+              {[
+                {
+                  icon: Award,
+                  title: "Experiencia CORFO",
+                  copy:
+                    "Consultores senior con trayectoria en fondos CORFO y conocimiento profundo de los instrumentos.",
+                },
+                {
+                  icon: TrendingUp,
+                  title: "75% de Aprobación",
+                  copy: "Metodología probada que maximiza la elegibilidad y la evaluación técnica de tu proyecto.",
+                },
+                {
+                  icon: Handshake,
+                  title: "Acompañamiento Integral",
+                  copy: "Desde el diagnóstico hasta la postulación, con seguimiento cercano y entregables claros.",
+                },
+                {
+                  icon: Users,
+                  title: "Equipo Multidisciplinario",
+                  copy: "Ingenieros, consultores y ex-evaluadores trabajando en conjunto para fortalecer tu propuesta.",
+                },
+              ].map(({ icon: Icon, title, copy }, index) => (
+                <Card
+                  key={index}
+                  className="text-center border border-transparent hover:border-primary/60 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10 transition duration-200"
+                >
+                  <CardHeader>
+                    <div className="mx-auto h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                      <Icon className="h-8 w-8 text-primary" />
+                    </div>
+                    <CardTitle className="text-lg">{title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{copy}</p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </section>
@@ -861,12 +861,6 @@ export default function HomePage() {
                 manos.
               </p>
             </div>
-
-            <div className="max-w-2xl mx-auto text-center">
-              <TypeformButton size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-                Agenda tu asesoría en Typeform
-              </TypeformButton>
-            </div>
           </div>
         </section>
 
@@ -880,7 +874,7 @@ export default function HomePage() {
                 </p>
                 <Image src="/witi-logo.svg" alt="WiTI Logo" width={130} height={40} className="h-10 w-auto" />
               </div>
-              <div className="grid md:grid-cols-3 gap-6 text-sm">
+              <div className="grid md:grid-cols-2 gap-6 text-sm">
                 <div className="space-y-2">
                   <p className="font-semibold">Oficinas</p>
                   <div className="text-muted-foreground space-y-1">
@@ -895,12 +889,6 @@ export default function HomePage() {
                     <p>+56 9 7537 9882</p>
                     <p>startups@witi.cl</p>
                   </div>
-                </div>
-                <div className="space-y-2">
-                  <p className="font-semibold">Acción</p>
-                  <TypeformButton className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-                    Agenda tu asesoría
-                  </TypeformButton>
                 </div>
               </div>
             </div>
