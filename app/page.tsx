@@ -129,11 +129,7 @@ const faqs = [
     question: "¿Qué pasa si no cumplo los resultados?",
     answer: "Debes justificar ante CORFO. Con WiTI, te ayudamos a cumplir los hitos para evitar problemas.",
   },
-  {
-    question: "¿Cuánto cobran por el servicio de postulación?",
-    answer:
-      "Nuestros honorarios son competitivos y se incluyen en el presupuesto del proyecto. Agenda una reunión para conocer las condiciones.",
-  },
+
 ]
 
 const organizationSchema = {
